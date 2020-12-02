@@ -1,3 +1,4 @@
+"use strict";
 /**
  * a30-scope-of-code
  * Explain
@@ -54,20 +55,29 @@ mySuperCar();
 // tutaj jest to zrobione aby łatwiej było określić gdzie się znajdujemy.
 // W rzeczywistym kodzie raczej nie spotkamy takich konstrukcji
 // Służy ona wyłączenie sprawdzeniu jak zachowuje się przeszukiwanie scope w JS.
-const myColor = 'red';
+
+global.myColor = 'green';
+// const myColor = 'red';
+
 (function inception() {
-	const myColor = 'cristal';
+	//const myColor = 'cristal';
 
 	(function secondDream() {
-		const myColor = 'sapphire';
+		//const myColor = 'sapphire';
 
 		(function thirdDream() {
-			const myColor = 'emerald';
+		    const myColor = 'emerald';
 
 			(function fourthDream() {
-				const myColor = 'diamond';
+				const myColor2 = 'diamond';
 				// komentuj po kolei idąc z tego scope odwołanie do stałem myColor - aby zobaczyć jak będzie się zachowywać
+				console.log(myColor2);
 				console.log(myColor);
+                console.log(globalThis.myColor);
+                // Na Node.js można tak:
+                console.log(global.myColor);
+                // Na Przeglądarce byłoby:
+                // console.log(window.myColor)
 			})()
 		})();
 	})();
@@ -83,9 +93,27 @@ const myColor = 'red';
 
 const myVariable = 123;
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function sample() {
-	const myVariable = 'Hello';
-	console.log(myVariable);
+	const myVariable2 = 'Hello';
+	console.log(myVariable2); 
+    console.log(myVariable); 
+
+	// console.log(global.myVariable); 
 	// Nie mam jak dostać się do outer scope
 	// Musiałbym zmienić nazwę lokalnej zmiennej.
 
@@ -102,7 +130,8 @@ sample();
 // DANGER ZONE:
 // O tym jeszcze będzie mowa, jednak można zupełnie przypadkowo zadeklarować zmienną w global scope:
 function findMyNewMug() {
-	// "use strict"; // odkomentuj w odpowiednim momencie
+    // "use strict"; // odkomentuj w odpowiednim momencie
+    console.log(this);
 	myMug = 'Moss sticker attached to bottom.'
 	// Zmienna myMug nie była zadeklarowana w outer scope...
 	// Co za tym idzie nie powinniśmy mieć możliwości jej nadpisania,

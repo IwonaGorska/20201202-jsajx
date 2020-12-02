@@ -62,11 +62,11 @@ myCaffeineLib.laboratory.makeSample(); //?
 
 // AD. b) IIFE:
 // IIFE - Immediately Invoked Function Expression (@see: https://developer.mozilla.org/en-US/docs/Glossary/IIFE)
-(function(){
+;(function(){
 	var iAmHermetic = 'some value to print';
 
 	console.log(iAmHermetic);
-}())
+})()
 
 // Poza IIFE nie mamy dostępu do zawartości iAmHermetic:
 // console.log(iAmHermetic);

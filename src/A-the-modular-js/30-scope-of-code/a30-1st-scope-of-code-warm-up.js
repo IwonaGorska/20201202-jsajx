@@ -12,7 +12,9 @@ let fullName = ''
 function computeFullName() {
 	const firstName = 'John';
 	const lasName = 'Kowalsky';
-	// Kod możesz pisać tylko w tym miejscu:
+    // Kod możesz pisać tylko w tym miejscu:
+    fullName = firstName + ' ' + lasName;
+    // console.log(global.fullName)
 }
 
 computeFullName();
