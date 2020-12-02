@@ -1,5 +1,6 @@
 const name = 'Maurice';
 const lastName = 'Moss';
+
 const user = {
 	name,
 	lastName

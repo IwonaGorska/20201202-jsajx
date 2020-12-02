@@ -70,7 +70,9 @@ myCaffeineLib.laboratory.makeSample(); //?
 
 // Poza IIFE nie mamy dostępu do zawartości iAmHermetic:
 // console.log(iAmHermetic);
-
+console.log(global.name);
+console.log(name);
+console.log(globalThis)
 
 // -----------------------------
 // Później - w latach 2009-2010 pojawiają się nowe koncepcje modułowości JavaScript'u:
