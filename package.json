@@ -1,0 +1,17 @@
+{
+  "name": "jsajx",
+  "version": "1.1.2",
+  "description": "Zaawansowany JavaScript - teoria + ćwiczenia",
+  "main": "src/A-the-modular-js/10-the-need-of-modularity/a10-1st-the-need-of-modularity-warm-up.js",
+  "dependencies": {
+    "immutable": "^4.0.0-rc.12",
+    "immer": "^8.0.0"
+  },
+  "scripts": {
+    "start": "echo \"Please install Quokka.js and enjoy your exercises !\""
+  },
+  "keywords": [],
+  "author": "Jabi",
+  "type": "module",
+  "license": "ISC"
+}
