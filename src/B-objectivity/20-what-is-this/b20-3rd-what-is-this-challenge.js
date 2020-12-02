@@ -14,19 +14,35 @@ import { assertThat } from '../../j4b1-assert'
  * - Możesz dodawać kod w ShowDepartmentButton
  */
 
+ 
+ 
+ 
 class ShowDepartmentButton {
 
 	name = 'IT Department'
 
-	printMyName() {
-		return this.name;
-	}
-
+    constructor() {
+        // #4 100% legalnie:
+        this.printMyName = this.printMyName.bind(this);
+    }
+    
+    // #3 Experimental
+	// printMyName = () => {
+	// 	return this.name;
+    // }
+    printMyName() {
+       return this.name;
+    }
+    
 	render() {
+        // #4
+        
 		return {
 			type: 'button',
-			name: 'Gotcha !',
-      onClick: this.printMyName,
+            name: 'Gotcha !',
+            onClick: this.printMyName,
+            // onClick: () => this.printMyName(), // #1
+            // onClick: this.printMyName.bind(this), // #2
 			innerHTML: 'Show your department'
 		}
 	}

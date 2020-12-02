@@ -1,3 +1,7 @@
+console.log(iAmDefined);
+iAmDefined();
+
+
 function iAmDefined() {
     
 }
@@ -8,6 +12,8 @@ const iAmExpression = function () {
 // Po 2015:
 const iAmArrowExpression = () => String(123) + '!';
 
+
+// console.log(iAmArrowExpression2);
 // Niejawne rzutowanie działa w JS "Out of the box!!!"
 // const iAmArrowExpression = () => 123 + '!';
 const iAmArrowExpression2 = () => {

@@ -13,8 +13,36 @@ import { assertThat } from '../../j4b1-assert'
 
 function dressUpAccordingToWeather(weatherProvider, props) {
 	// #Reguła:
-	// Możesz pisać tylko tutaj
-
+    // Możesz pisać tylko tutaj
+    // const { name, lastName, has } = props;
+    const name = props.name;
+    const lastName = props.lastName;
+    const has = props.has;
+    // console.log(props.name);
+    // console.log(props.lastName);
+    // console.log(props.has);
+    
+    // const user = {
+    //     name, // object property shorthand stosuje
+    //     lastName: lastName,
+    //     wearing: weatherProvider === 'sunny' ? 't-shirt' : 'coat'
+    // }
+    // // ES5:
+    // user[has] = true;
+    
+    // Jesli bez ternary operatora:
+    // user.wearing = 'coat';
+    // if(weatherProvider === 'sunny') {
+    //     user.wearing = 't-shirt'
+    // }
+    
+    // return user;
+    return {
+        name, // object property shorthand stosuje
+        lastName: lastName,
+        wearing: weatherProvider === 'sunny' ? 't-shirt' : 'coat',
+        [has]: true
+    }
 }
 
 

@@ -15,6 +15,7 @@
 
 // Spójrzmy na przykład z warm-up nieco inaczej:
 function sayYourName() {
+    // console.log(this);
 	return this.fullName;
 }
 
@@ -31,7 +32,7 @@ const personJen = {
 }
 
 // Funkcja zostaje po prostu wywołana - wtedy słowo kluczowe this pokazuje na obiekt globalny
-sayYourName(); //?
+sayYourName(); //? POd this wtedy jest obiekt globalny
 
 // Teraz wywołujemy metodę na obiekcie, this pokazuje na instancje tego obiektu:
 personJen.sayYourName(); //?
@@ -99,12 +100,13 @@ otherCar.bindBorrowName() //?
 // Nie zmieniają kontekstu wywołania.
 // Jeśli nie zostaną zadeklarowane na obiekcie - słowo kluczowe `this` nie pokaże na obiekt globalny,
 // tylko na pusty obiekt.
-
+console.log(this);
 const myThisInsideAnArrow = () => {
 	return this;
 }
 
-myThisInsideAnArrow() //?
+// bind na arrow function nie zadziała
+myThisInsideAnArrow.bind({ role: 'ok '})() //?
 
 const adminUser = {
 	role: 'SuperAdmin',
@@ -123,7 +125,13 @@ const otherUser = {
 	role: 'NormalUser',
 	getRole() {
 		// zauważ że getRole to teraz standardowa metoda, wiec tutaj `this` będzie ZALEŻNE OD KONTEKSTU
-		const showYourRole = () => this.role;
+        const showYourRole = () => this.role;
+        // const showYourRole = function () { return this.role };
+        // const that = this;
+        setTimeout(() => {
+           console.log('This is my role',  this.role) 
+        }, 3000)
+        
 		return showYourRole();
 	}
 }
