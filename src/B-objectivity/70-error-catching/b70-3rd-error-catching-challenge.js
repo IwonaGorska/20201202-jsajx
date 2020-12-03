@@ -31,6 +31,12 @@ import { assertThat } from '../../j4b1-assert'
 
 // Tutaj przygotuj klasę z błędem:
 // ...
+class TemplateParseError extends Error {
+    constructor(line) {
+        super('Template parse error in line: ' + line);
+        this.line = line;
+    }
+}
 
 // Tej logiki nie zmieniaj, dodaj jedynie wywołanie błędu w oznaczonym miejscu
 function templateParse(templateString = '', mappedValues = {}) {
@@ -43,7 +49,7 @@ function templateParse(templateString = '', mappedValues = {}) {
 	  		if(!value) {
 	  			// Tutaj dla klucza występującego w template, nie zostało została zdefiniowana wartość w mappedValues
 				  // Trzeba rzucić błąd z numerem lineIdx
-
+                throw new TemplateParseError(lineIdx);
 			  }
 	  		line = line.replace('{{'+key+'}}', value);
 		  }
@@ -57,11 +63,17 @@ const parsed1 = templateParse(`<h1>{{title}}</h1>` , {title: 'The It Crowd'});
 // Pomocnicza zmienna, do której trzeba wpisać zwracany error (patrz testy poniżej)
 let error;
 
-let parsed2 = templateParse(`
-	<h1>{{title}}</h1>
-	<h2>{{subtitle}} and {{others}}</h2>
-` , {title: 'My super site', subtitle: 'shop whatever you want'});
-
+let parsed2 = '';
+try {
+    parsed2 = templateParse(`
+        <h1>{{title}}</h1>
+        <h2>{{subtitle}} and {{others}}</h2>
+    ` , {title: 'My super site', subtitle: 'shop whatever you want'});
+} catch (e) {
+    error = e;
+    // e.stack
+    // throw e;
+}
 
 
 // #Reguła:
