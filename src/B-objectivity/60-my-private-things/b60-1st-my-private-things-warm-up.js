@@ -22,9 +22,11 @@ const myGreetingObject = {
 const welcomeRoy = myGreetingObject.welcome();
 
 try {
-Object.defineProperty(myGreetingObject, '_welcomeMessage', { writable: false })
-myGreetingObject._welcomeMessage = 'Troll'
-} catch {}
+    Object.defineProperty(myGreetingObject, '_welcomeMessage', { writable: false })
+    myGreetingObject._welcomeMessage = 'Troll'
+} catch (e) {
+    console.log(e);
+}
 
 myGreetingObject.name = 'Moss';
 const welcomeMoss = myGreetingObject.welcome();

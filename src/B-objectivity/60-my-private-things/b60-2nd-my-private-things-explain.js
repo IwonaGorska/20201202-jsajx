@@ -27,7 +27,9 @@ console.log(person)
 
 // 2) Using closure with factory function
 function laptopFactory(producer, model, ramAmount) {
-	let extendableRam = ramAmount;
+    
+    let extendableRam = ramAmount;
+    
 	return {
 		producer,
 		model,
@@ -42,6 +44,7 @@ function laptopFactory(producer, model, ramAmount) {
 }
 
 const myLaptop = laptopFactory('Dell', 'Precision 5530', 4)
+const myLaptop2 = laptopFactory('Dell', 'Precision 5530', 4)
 
 console.log(myLaptop)
 console.log(myLaptop.memory())
@@ -50,6 +53,7 @@ myLaptop.extendMemory(4)
 myLaptop.extendMemory(4)
 
 console.log(myLaptop.memory())
+console.log(myLaptop2.memory())
 
 // 3) using closure in constructor function
 function MyPerson (name, salary) {
@@ -89,6 +93,8 @@ class Person {
 
 const mrJohn = new Person();
 console.log(mrJohn);
+// mrJohn.salary = 10002
+// console.log(mrJohn)
 console.log(mrJohn.showMySalary());
 mrJohn.makeARise();
 console.log(mrJohn.showMySalary());

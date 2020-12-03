@@ -12,8 +12,13 @@ import { assertThat } from '../../j4b1-assert'
 
 let superInvention = 'What was the last one? Oh yes. ';
 
-
-somethingThatWillAlwaysBeBroken( true );
+try {
+    somethingThatWillAlwaysBeBroken( true );
+} catch(e) {
+    console.log(e);
+    console.log(e.message);
+    console.log(e instanceof Error)
+}
 
 
 superInvention += 'A ladder, to help moths escape from the bath.';

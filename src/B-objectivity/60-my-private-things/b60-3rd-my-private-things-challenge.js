@@ -17,7 +17,21 @@ import { assertThat } from '../../j4b1-assert'
 
 function lawyerFactory(fullName = '', salary = 3000) {
 	// #Reguła:
-	// Kodzik można pisać tylko w tym bloku.
+    // Kodzik można pisać tylko w tym bloku.
+    const [firstName, lastName = ''] = fullName.split(' ');
+    let lawyerSalary = salary;
+    return {
+        firstName,
+        lastName,
+        getSalaryInfo() {
+            //return `${this.firstName} earns $${salary}`;
+            return `${this.firstName} earns $${lawyerSalary}`;
+        },
+        makeARise(value) {
+            // salary += value; 
+            lawyerSalary += value; // lawyerSalary = lawyerSalary + value;
+        }
+    };
 }
 
 // #Reguła:
@@ -28,7 +42,7 @@ const lawyerRachel = lawyerFactory('Rachel Zane', 5000);
 const lawyerDonna = lawyerFactory('Donna');
 
 // odkomentuj poniższą linię, kiedy będzie już implementacja:
-// lawyerDonna.makeARise(5000)
+lawyerDonna.makeARise(5000)
 
 assertThat(
 	'Lawyer should have first and last name (just a warm up)',

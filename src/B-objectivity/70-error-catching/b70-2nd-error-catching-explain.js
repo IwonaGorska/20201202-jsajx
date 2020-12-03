@@ -59,6 +59,7 @@ try {
 	// Łańcuch dziedziczenia:
 	console.log(e instanceof ReferenceError);
 	console.log(e instanceof Error);
+	console.log(e instanceof Object);
 }
 
 // Błąd może nas w ogóle nie interesować:
@@ -72,7 +73,12 @@ try {
 } catch (error) {
 	console.log(error);
 	console.log(error instanceof SyntaxError)
-	console.log(error instanceof Error)
+    console.log(error instanceof Error)
+    if(error instanceof SyntaxError) {
+        ///... ..
+    } else if(error instanceof Error) {
+        ///... ..
+    }
 }
 
 let maybeAnObject = null;
@@ -138,9 +144,11 @@ function connectToServer() {
 	const randFrom0To3 = Math.round(Math.random() * 3);
 	console.log(randFrom0To3);
 	if(whatsTheOdds[randFrom0To3]) {
-		// Przykładowe użycie MyNetworkError:
+		// Przykładowe użycie MyNetworkError: 
 		throw new MyNetworkError(500, 'Server unreachable');
-	}
+    }
+    // inna rzecz która może rzucić coś innego:
+    
 }
 
 try {
