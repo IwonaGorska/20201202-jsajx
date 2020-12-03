@@ -29,8 +29,11 @@ const initialTypeState = {
 
 // Funkcja obliczająca stan następny na podstawie stanu poprzedniego
 function calculateNewParagraphState(currentState = initialTypeState, paragraphText = '') {
-	  currentState.paragraphTextContent += paragraphText;
-	  return currentState;
+	  // currentState.paragraphTextContent += paragraphText;
+	return { 
+        // ...currentState, 
+        paragraphTextContent: currentState.paragraphTextContent + paragraphText 
+    }
 }
 
 // Nasza symulacja pisania czegoś przez usera:
@@ -56,6 +59,10 @@ const changeDetectionModule = (function(){
 
 // Pomocnicza destrukturyzacja kolejnych stanów aplikacji:
 const [first, second, third, forth] = changeDetectionModule;
+// const first = changeDetectionModule[0];
+// const second = changeDetectionModule[1];
+// const third = changeDetectionModule[2];
+// const forth = changeDetectionModule[3];
 
 assertThat(
 	'At the init program, the state should be empty',
@@ -75,6 +82,7 @@ assertThat(
 )  //?
 assertThat(
 	'States are not the same object in memory',
-	expect => expect(first === second && second === third && third === forth).toBe(false)
+	// expect => expect(first === second && second === third && third === forth).toBe(false)
+	expect => expect(first === second || second === third || third === forth).toBe(false)
 )  //?
 

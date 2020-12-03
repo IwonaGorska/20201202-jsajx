@@ -20,6 +20,25 @@ import { assertThat } from '../../j4b1-assert'
  * - Nie można tylko ruszać kodziku z asercjami!
  */
 
+ console.log('hello'[0]);
+ console.log('hello'.charAt(0));
+ 
+ console.log(''[0]);
+ console.log(''.charAt(0) === '');
+ 
+ if(!String.prototype.last) {
+    String.prototype.last = function () {
+        // console.log(this);
+        return this.charAt(this.length - 1)
+    }
+ }
+
+ if(!String.prototype.capitalize) {
+    String.prototype.capitalize = function () {
+        // console.log(this);
+        return this.charAt(0).toUpperCase() + this.slice(1);
+    }
+ }
 
 
 // #Reguła:

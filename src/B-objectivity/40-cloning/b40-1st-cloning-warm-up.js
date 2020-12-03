@@ -26,10 +26,33 @@ const myFirstImpressiveObject = {
 	}
 }
 
+// JS BUG który nie został naprawiony:
+console.log(typeof null);
+
+
+// Próba pokazania że typeof nie zaprowadzi nas do rozwiązania dla typów złożonych
+console.log(typeof []);
+console.log(typeof new Date());
+console.log(typeof /\./g);
+console.log(typeof {});
+
 function cloner(objectToClone) {
 	// #Reguła:
-	// Kodzik można pisać tylko w tym bloku.
-	return objectToClone;
+    // Kodzik można pisać tylko w tym bloku.
+    // const myClone = { ...objectToClone };
+    // const myClone = Object.assign({}, objectToClone);
+    const myClone = {};
+    for(let key in objectToClone) {
+        console.log(key)
+        console.log(key)
+        console.log(key)
+        if(typeof objectToClone[key] === 'object') {
+            myClone[key] = cloner(objectToClone[key]); 
+        } else  {
+            myClone[key] = objectToClone[key];
+        }
+    }
+	return myClone;
 }
 
 

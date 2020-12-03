@@ -15,9 +15,9 @@ class Vehicle {
 	constructor (name = '') {
 		this.name = name;
 	}
-	// shoutMyName() {
-	// 	console.log(this.name);
-	// }
+	shoutMyName() {
+		console.log(this.name);
+	}
 }
 
 // Klasa która dziedziczy po klasie bazowej
@@ -28,18 +28,22 @@ class Car extends Vehicle {
 		super(name);
 	}
 
-	shoutMyName() {
-		console.log(this.name);
-	}
+	// shoutMyName() {
+	// 	console.log(this.name);
+	// }
 }
 
-function shoutMyName() {
-	console.log(this.name);
-}
+// Vehicle.prototype.shoutMyName = function() {
+// 	console.log(this.name);
+// };
 
-// Vehicle.prototype.shoutMyName = shoutMyName;
+// Car.prototype.shoutMyName = function() {
+// 	console.log(this.name);
+// };
 
 const car = new Car('Audi');
 console.log(car);
 
 car.shoutMyName() //? 'Hello Audi !'
+// Car.prototype.shoutMyName() || myCar.shoutMyName() || Vehicle.prototype.shoutMyName() || baseClass.shoutMyName()
+

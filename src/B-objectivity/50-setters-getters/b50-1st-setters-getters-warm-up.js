@@ -8,7 +8,13 @@ import { assertThat } from '../../j4b1-assert'
  */
 const person = {
 	// #Reguła:
-	// Kodzik można pisać tylko tutaj w środku.
+    // Kodzik można pisać tylko tutaj w środku.
+    name: 'Janusz',
+    lastName: 'Kowalski',
+    get email() {
+        // return (this.name + '.' + this.lastName + '@workload.com').toLowerCase();
+        return `${this.name}.${this.lastName}@workload.com`.toLowerCase();
+    }
 }
 
 // #Reguła:

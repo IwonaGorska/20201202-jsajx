@@ -19,7 +19,8 @@ MyDepartment.showStatic = function() {
 	// Metoda statyczna nie ma dostępu do instancji !!
 	// Można tutaj użyć `this`, jednak jest to to samo co użycie:
 	// return MyDepartment;
-	// tak więc to `this` - to tak naprawdę wskazanie funkcji - konstruktora MyDepartment!
+    // tak więc to `this` - to tak naprawdę wskazanie funkcji - konstruktora MyDepartment!
+    // console.log(this);
 	return this;
 }
 MyDepartment.otherStaticField = 'hello';
@@ -33,6 +34,8 @@ console.log(MyDepartment.otherStaticField)
 
 // To samo można zapisać w bardziej nowoczesny sposób:
 class Department {
+    // Od Node 14.x LTS można tak:
+    static otherStaticField = 'hello';
 	constructor (placement) {
 		this.placement = placement
 	}
@@ -43,7 +46,8 @@ class Department {
 		return this;
 	}
 }
-Department.otherStaticField = 'hello';
+// Node 10.x trzeba było tak:
+// Department.otherStaticField = 'hello';
 
 const newIt = new Department('Last Floor IT');
 

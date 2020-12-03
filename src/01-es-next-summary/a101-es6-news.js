@@ -172,6 +172,8 @@
   // .....
 
   // pokaż mi producenta lodówki
+  // 
+  // const manufacturer = inDoorAPI.fridge.manufacturer;
   const { manufacturer } = inDoorAPI.fridge;
   console.log('manufacturer:', manufacturer);
 
@@ -181,7 +183,8 @@
 
   // wyjmij ser z lodówki:
   const { content } = inDoorAPI.fridge;
-  const [,,yourCheese] = content;
+  const [pomidor,,yourCheese] = content;
+  console.log(pomidor);
   console.log('Here you are, it is your:', yourCheese);
 
   // #! Co zrobić jeśli mamy kolizję nazw z innym API?

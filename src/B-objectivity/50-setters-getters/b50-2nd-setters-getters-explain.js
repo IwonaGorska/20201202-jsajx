@@ -25,8 +25,18 @@ const person = {
 	lastName: 'Moss',
 	get fullName() {
 		return this.name + ' '+ this.lastName;
-	}
+    },
+    // set fullName(pomidor) {
+    //     const [name, lastName = ''] = pomidor.split(' ');
+	// 	this.name = name;
+	// 	this.lastName = lastName;
+	// }
 }
+// To nie zadziała, bo nie ma settera 
+// a getter cały czas jest przeliczany na podstawie zdefiniowanej logiki w środku fullName()
+// person.fullName = 'KateKowalsky';
+// console.log(person.name);
+// console.log(person.lastName);
 console.log(person.fullName)
 
 person.name = 'Roy';
@@ -47,6 +57,7 @@ class MyItProfessional {
 	}
 
 	set position(value) {
+        // console.log(value);
 		switch(value) {
 			case 'junior':
 				this.ageOfWork = 1;
@@ -59,7 +70,9 @@ class MyItProfessional {
 			break;
 			default:
 				console.warn('sorry, unknown position:', value);
-		}
+        }
+        // UWAGA bo to też odpali ten setter !
+        // this.position = 112;
 	}
 }
 

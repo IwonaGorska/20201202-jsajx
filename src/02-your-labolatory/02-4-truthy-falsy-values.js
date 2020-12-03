@@ -16,3 +16,22 @@ if(1 === '1') {
 
 // https://developer.mozilla.org/en-US/docs/Glossary/Falsy
 // https://dorey.github.io/JavaScript-Equality-Table/
+
+const myObject = {};
+
+
+console.log(myObject.hello);
+if(myObject.hello) {
+    console.log('Hello');
+}
+if(undefined) {
+    console.log('Hello');
+}
+// To robi za nas JS:
+if(Boolean(undefined)) {
+    console.log('Hello');
+}
+
+console.log(Boolean(undefined));
+console.log(Boolean('undefined'));
+console.log(Boolean(''));

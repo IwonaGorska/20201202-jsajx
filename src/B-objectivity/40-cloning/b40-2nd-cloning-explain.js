@@ -119,6 +119,11 @@ class Car {
 	name = 'Audi A6'
 }
 
+console.log(typeof null);
+console.log(null === null);
+console.log({} === {});
+
+
 const complicatedObject = {
 	myDate: new Date(),
 	myString: 'some string',
@@ -136,6 +141,8 @@ const complicatedObject = {
 	car: new Car()
 }
 
+console.log(typeof (() => {}))
+
 function professionalCloner(toClone) {
 	switch(typeof toClone) {
 		case 'string':
@@ -151,6 +158,8 @@ function professionalCloner(toClone) {
 			};
 	}
 
+    // console.log(typeof toClone);
+    
 	// potrzebny osobny zapis dla null (bo `typeof null` to - `object`!)
 	if(toClone === null) {
 		return toClone;
