@@ -64,6 +64,8 @@ function memoize(myFunction) {
         return result;
     }
 }
+// Nie trzeba tego pisać samemu zobacz:
+// https://lodash.com/docs/4.17.15#memoize
 
 const longComputation = memoize(longComputation3);
 
