@@ -4,6 +4,9 @@ function manyArguments() {
     // arguments jest obiektem "array like" a nie Array !!!!!
     console.log(arguments.forEach)
     console.log(arguments)
+    for(let a of arguments) {
+        console.log(a);
+    }
     console.log(arguments instanceof Array)
     console.log(arguments[0])
     console.log(arguments[4])

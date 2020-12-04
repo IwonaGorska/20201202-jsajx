@@ -68,8 +68,9 @@ console.log(setCollection.has(today))
 // Wartości mogą być dowolne.
 // Nie da się iterować po WeakMap'ie.
 
-const myHoldOn = {};
+let myHoldOn = { name: 'Wiesław' };
 const collection = new WeakMap([[{}, 2], [myHoldOn, 'Hello World!']])
+// myHoldOn = null
 
 console.log(collection.get(myHoldOn))
 
@@ -84,8 +85,10 @@ console.log(collection.get(myHoldOn))
 
 function Person(name, age) {
 	const privates = new WeakMap();
-	privates.set(this, {});
-	privates.get(this).somethingPrivate = 'cash';
+    privates.set(this, {});
+    privates.get(this) //?
+    privates.get(this).somethingPrivate = 'cash';
+    privates.get(this) //?
 
 	this.name = name;
 	this.age = age;

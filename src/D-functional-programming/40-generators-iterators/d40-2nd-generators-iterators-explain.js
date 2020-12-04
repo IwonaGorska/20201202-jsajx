@@ -55,10 +55,14 @@ generate4Numbers().next() //?
 // W tym układzie mamy nowy wskaźnik na iterator - a on zaczyna iterację "od początku"
 // Żeby wyciągnąć numery po kolei - musimy skorzystać z tego samego wskaźnika:
 
-const iterator = generate4Numbers();
+let iterator = generate4Numbers();
 iterator.next() //?
 iterator.next() //?
 iterator.next() //?
+iterator.next() //?
+iterator.next() //?
+iterator.next() //?
+iterator = generate4Numbers();
 iterator.next() //?
 iterator.next() //?
 iterator.next() //?
@@ -90,6 +94,12 @@ setIterator.next() //?
 
 // To samo możemy uzyskać od dowolnej kolekcji implementującej interfejs iteratora!!!
 // wystarczy że posłużymy się odpowiednim symbolem:
+
+const user = {
+    name: 'HELLO'
+}
+
+console.log(user['name'])
 
 const myString = 'Hi! 🤩';
 
@@ -178,6 +188,7 @@ const myUser = {
 // for(const sth of myUser) {
 // 	console.log(sth)
 // }
+console.log([]) //?
 
 // Jednak z pomocą i implementacją Symbol.iterator + generator:
 const myIterableUser = {
@@ -187,7 +198,8 @@ const myIterableUser = {
 	*[Symbol.iterator]() {
 		 for(const fruit of this.fruits) {
 		 	  yield fruit;
-		 }
+         }
+         // return { next () {}};
 	}
 }
 

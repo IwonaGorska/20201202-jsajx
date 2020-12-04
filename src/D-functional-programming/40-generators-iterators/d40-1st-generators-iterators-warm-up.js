@@ -9,7 +9,9 @@ import { assertThat } from '../../j4b1-assert'
 
 const splitter = [];
 for(const x of 'Latte') {
-	// Możesz pisać kod tutaj (wewnątrz tego bloku):
+    // Możesz pisać kod tutaj (wewnątrz tego bloku):
+    console.log(x);
+    splitter.push(x);
 }
 // #Reguła:
 // Nie możesz zmieniać tego kodu:
@@ -18,14 +20,23 @@ assertThat(
 	expect => expect(splitter.join('')).toBe('Latte')
 )  //?
 
+Object.entries({ user: 'Mike'}) //?
+Object.keys({ user: 'Mike'}) //?
+Object.values({ user: 'Mike'}) //?
 // Nie możesz zmieniać wartości w `numeric`
 const numeric = [[1, 2], [3, 4]];
 // Możesz ruszać przypisania w num1 i num2
-let num1;
-let num2;
+let num1 = '';
+let num2 = '';
 // pętla musi zostać i iterować po `numeric`, jednak możesz modyfikować jej zawartość
-for(const placeholder of numeric) {
-	// Możesz pisać kod tutaj (wewnątrz tego bloku):
+for(const [no1, no2] of numeric) {
+    // Możesz pisać kod tutaj (wewnątrz tego bloku):
+    // const [no1, no2] = placeholder;
+    // console.log(placeholder)
+    // num1 += String(placeholder[0]);
+    // num2 += String(placeholder[1]);
+    num1 += no1;
+    num2 += no2;
 }
 // #Reguła:
 // Nie możesz zmieniać tego kodu:
@@ -47,11 +58,13 @@ const DYNAMIC_KEY = 'show';
 class MyIterableConcept {
 
 	['thisIsSimple']() {
-		// Tutaj można pisać kodzik
+        // Tutaj można pisać kodzik
+        return 'FUN'
 	}
 
-	[DYNAMIC_KEY]() {
-		 // Tutaj można pisać kodzik
+	[DYNAMIC_KEY + 'MeSomeNumbers']() {
+         // Tutaj można pisać kodzik
+         return [90, 10, 20]
 	}
 }
 

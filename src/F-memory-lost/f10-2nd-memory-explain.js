@@ -114,7 +114,7 @@ function myDummyComponent() {
 }
 
 // Odkomentuj kod poniżej aby zobaczyć tę implementację
-const myComponent = myDummyComponent();
+// const myComponent = myDummyComponent();
 //
 // myComponent.onRerender(() => {
 // 	console.log(myComponent.render())
