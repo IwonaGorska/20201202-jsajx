@@ -10,16 +10,32 @@ import { assertThat } from '../../j4b1-assert'
  * - Pisz kod tylko wewnątrz `push` i `pop`
  */
 
+const arr1 = [1, 2, 3, 4];
+arr1.push(5);
+console.log(arr1);
+
+const arr2 = [1, 2, 3, 4];
+arr2.pop();
+console.log(arr2);
+ 
 // 1) PUSH FUNCTIONALITY:
 
 function push (element, array) {
 	// #Reguła:
-	// Kodzik można pisać w tym bloku.
-	return array;
+    // Kodzik można pisać w tym bloku.
+    // const arr2 = [];
+    // for(let el of array) {
+    //     arr2.push(el);
+    // }
+    // arr2.push(element);
+	return [...array, element];
 }
 
 const original = [1, 2, 3, 4, 5];
 const result = push(900, original);
+
+// console.log(result);
+// console.log(original);
 
 // #Reguła:
 // Nie możesz zmieniać kodu asercji poniżej:
@@ -44,8 +60,10 @@ assertThat(
 
 function pop(array) {
 	// #Reguła:
-	// Kodzik można pisać w tym bloku.
-	return array;
+    // Kodzik można pisać w tym bloku.
+    const array2 = [...array];
+    array2.pop();
+	return array2;
 }
 
 const withAllElements = ['mangoes', 'strawberries', 'blueberries'];

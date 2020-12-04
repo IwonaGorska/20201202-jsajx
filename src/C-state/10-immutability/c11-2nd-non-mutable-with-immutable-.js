@@ -4,6 +4,15 @@ import { assertThat } from '../../j4b1-assert'
  * c11-non-mutable-with-immutable-js
  * Explain
  *
+ * Żeby przykład działał poprawnie otwórz terminal
+ * Ctrl + `
+ * 
+ * I wpisz komendę
+ * npm install
+ * 
+ * komenda do projektu kind-of-modules:
+ * npm run
+ * 
  *
  * #Cel:
  * Poznanie biblioteki immutable.js - która oferuje właśnie takie "niemutowalne" kolekcje danych.
@@ -12,6 +21,10 @@ import { assertThat } from '../../j4b1-assert'
 
 const original = new List([1, 2, 3, 4, 5]);
 const result = original.push(900);
+
+console.log(original);
+console.log(result);
+original.map(() => 1) //?
 
 // #Reguła:
 // Nie możesz zmieniać kodu poniżej:

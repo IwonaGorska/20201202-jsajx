@@ -20,7 +20,8 @@ import { assertThat } from '../../j4b1-assert'
 // Przykład 1:
 // Funkcja która dodaje wykrzyknik do każdego zdania:
 function addBang(sentence) {
-	return sentence + '!';
+    sentence += '!';
+	return sentence;
 }
 
 const mySentence = 'Hello World';
@@ -72,6 +73,8 @@ console.log(myOtherObject);
 // Lepiej żeby funkcja zwróciła wynik jako nowy obiekt ze słowem i wykrzyknikiem.
 
 // Poprawiamy implementację:
+// Shallow copy:
+// { ...object2 } !== object2
 
 function nonMutatingAddBangToWord(objectWithWord) {
 	return {
@@ -112,6 +115,10 @@ const myCoffeeState = {
 		}
 	},
 }
+
+const groundContainer2 = myCoffeeState.coffeeMachine.groundContainer;
+
+groundContainer2 !== myCoffeeState.coffeeMachine.groundContainer // PureComponents tak działa w React.
 
 // Przypomnij sobie problem z zadania: ./b40-3rd-cloning-challenge.js
 
