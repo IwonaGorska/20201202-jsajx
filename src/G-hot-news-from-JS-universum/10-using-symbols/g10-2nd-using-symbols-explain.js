@@ -16,6 +16,7 @@ const mySymbol = Symbol();
 
 // Każde wywołanie jest unikatowe:
 console.log(mySymbol);
+console.log(typeof mySymbol);
 console.log(mySymbol === Symbol())
 console.log(Symbol() === Symbol())
 

@@ -17,7 +17,9 @@ const DZej = {
 	getJSON(url) {
 		// #Reguła:
 		// Kodzik można pisać i zmieniać tylko w tym bloku.
-		// return Promise.resolve('')
+		return new Promise((resolve, reject) => {
+            // nasza logika do promisy....
+        })
 	}
 }
 

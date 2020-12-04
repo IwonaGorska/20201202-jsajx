@@ -15,8 +15,9 @@ const collector = [];
 
 collector.push(1);
 
-
-collector.push(3);
+Promise.resolve().then(() => {
+    collector.push(3);
+});
 
 
 collector.push(2);
@@ -34,8 +35,9 @@ const secondCollector = [];
 
 secondCollector.push(1);
 
-
-secondCollector.push(3);
+setTimeout(() => {
+    secondCollector.push(3);
+}, 0);
 
 
 secondCollector.push(2);

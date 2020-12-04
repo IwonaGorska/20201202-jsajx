@@ -14,17 +14,37 @@ import { assertThat, fireCount } from '../../j4b1-assert'
  */
 
 function getTheRefund(refundFn) {
+    console.log(refundFn);
 	const totalRefund = 300;
-	fireCount(getTheRefund)
-	refundFn(totalRefund);
+    fireCount(getTheRefund);
+    refundFn(totalRefund);  
+    // refundFn(totalRefund);  
+    // refundFn(totalRefund);  
+    // setTimeout(() => {
+    //     refundFn(totalRefund);  
+    // }, 7000)
+    
+    // return totalRefund;
 }
 
 // Person 1
 let collectedRefund = 0;
 
+// button.addEventListener('click', (ev) => {})
+
+getTheRefund((value) => {
+    console.log(value);
+    collectedRefund += value;
+});
 
 // Person 2
 let collectedTwoRefunds = 0;
+getTheRefund((value) => {
+    collectedTwoRefunds += value;
+});
+getTheRefund((value) => {
+    collectedTwoRefunds += value;
+});
 
 
 // #Reguła:

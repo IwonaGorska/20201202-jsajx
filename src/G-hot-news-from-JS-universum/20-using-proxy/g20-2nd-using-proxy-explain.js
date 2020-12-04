@@ -26,14 +26,28 @@ const myTroll = new Proxy(person, {
 	get ( target, propertyKey ) {
 		// console.log(propertyKey)
 		// console.log(target[propertyKey])
-		return 'TROLL'
-	}
+        
+        //
+        return Reflect.get(target, propertyKey)
+        // to to samo co:
+        // return target[propertyKey]
+    },
+    set(target, name, value) {
+        console.log(name);
+        console.log(value);
+    }
 })
+
+
+
+myTroll.ok = 'hello';
 
 console.log(myTroll.name)
 console.log(myTroll.lastName)
 console.log(myTroll.any)
 console.log(myTroll.nonExsitent)
+console.log(myTroll.nonExsitent32)
+console.log(myTroll.nonExsite)
 console.log(JSON.stringify(myTroll));
 
 // Dzieje się tak ponieważ person zostaje opakowany w obiekt Proxy,

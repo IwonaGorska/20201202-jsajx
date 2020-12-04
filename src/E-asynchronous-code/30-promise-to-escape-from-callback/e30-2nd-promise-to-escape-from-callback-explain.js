@@ -114,13 +114,19 @@ function makeAjaxCallAsPromise(url) {
 
 makeAjaxCallAsPromise('https://first')
 	.then((data) => {
+        // console.log(data);
 		return makeAjaxCallAsPromise('https://second' + data.url);
 	})
 	.then((data) => {
+        // throw new Error('OH NO....')
 		return makeAjaxCallAsPromise('https://third' + data.url);
 	})
 	.then((data) => {
-		console.log('THIS IS COOLNESS !!!', data);
+        console.log('THIS IS COOLNESS !!!', data);
+        return 1228617362123;
+    })
+    .then((pomidor) => {
+		console.log(pomidor);
 	})
 	.catch((err) => {
 		console.log('error 😐', err)
@@ -143,7 +149,9 @@ const promiseProvider = new Promise((resolve, reject) => {
 		resolve('OK')
 		// lub:
 		// reject(new Error('No way !'))
-	}, 200)
+	}, 2000)
+}).then((value) => {
+    console.log(value)
 })
 
 

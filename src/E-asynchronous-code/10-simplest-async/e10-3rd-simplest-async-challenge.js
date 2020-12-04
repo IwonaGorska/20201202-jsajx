@@ -27,7 +27,12 @@ import { assertThat } from '../../j4b1-assert'
 const DZej = {
 	getJSON(url, callback) {
 		// #Reguła:
-		// Kodzik można pisać i zmieniać tylko w tym bloku.
+        // Kodzik można pisać i zmieniać tylko w tym bloku.
+        if(url.endsWith('/it')) {
+            callback({ message: 'did you try?' }, null);
+        } else {
+            callback(null, {status: 404, message: 'Invalid URL!'});
+        }
 	}
 }
 
