@@ -65,6 +65,9 @@ const showWomanNamesOnly = emailData.map(pluckNameFormEmail).filter(isAWomanName
 const showEmailsWithDomainSiteCom = emailData.filter(isEmailFromSite('site.com'));
 
 
+// Oryginalne dane pozostają BEZ ZMIAN !
+console.log(emailData)
+
 // #Reguła:
 // Nie możesz zmieniać kodu poniżej:
 assertThat(

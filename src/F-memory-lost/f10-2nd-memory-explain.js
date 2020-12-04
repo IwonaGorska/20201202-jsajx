@@ -116,9 +116,9 @@ function myDummyComponent() {
 // Odkomentuj kod poniżej aby zobaczyć tę implementację
 const myComponent = myDummyComponent();
 //
-myComponent.onRerender(() => {
-	console.log(myComponent.render())
- })
+// myComponent.onRerender(() => {
+// 	console.log(myComponent.render())
+//  })
 
 // Jakie posiadamy tutaj problemy?
 

@@ -69,7 +69,11 @@ console.log(myRealMap)
 
 // Tworzenie nowej Mapy z istniejącej tablicy (dwuwymiarowej)
 console.log(
-	new Map([['key', 'value'], ['key2', 800]])
+	new Map([
+        ['key', 'value'], 
+        ['key2', 800],
+        ['key3', true]
+    ])
 )
 // Przekształcenie Map na Array:
 // Z pomocą przychodzi statyczna metoda: `Array.from`
@@ -106,13 +110,16 @@ myRealMap.size //?
 
 const myRealSet = new Set();
 
-myRealSet.add( 'apple' );
-myRealSet.add( 'cherry' );
+const ref = {};
+myRealSet.add( ref );
+myRealSet.add( undefined );
 myRealSet.add( 'banana' );
-myRealSet.add( 'banana' );
+myRealSet.add( 'bananA' );
 myRealSet.add( 'banana' );
 myRealSet.add( 'cherry' );
 myRealSet.add( 'mango' );
+
+myRealSet.has( ref ); //?
 
 console.log( myRealSet );
 

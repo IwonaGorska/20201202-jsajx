@@ -26,21 +26,46 @@ import { assertThat, countExecutionTime } from '../../j4b1-assert'
  * - możesz jedynie dodawać nowy kod
  */
 const memo = new Map();
+// 1 1
+// X 👍
 
-function longComputation(fromNumber) {
+
+// Specjalnie nazwa zmieniona dla celów memoize
+function longComputation3(fromNumber) {
 	let result = fromNumber;
 
 	// Możesz dodawać kod tylko w obrębie tej właśnie funkcji.
-
+    // if(memo.has(fromNumber)) {
+    //     return memo.get(fromNumber);
+    // }
+    
 	// Tej pętli nie można ruszać!
 	for(let i = 0; i <= 1000000; i++) {
 		result += i;
 	}
 
+    // memo.set(fromNumber, result);
 
 	// Ta funkcja musi zwracać wynik (tego nie ruszaj):
 	return result;
 }
+
+// Kolejne wykorzystanie closure
+// UWAGA: cache działa tylko dla 1wszego argumentu
+function memoize(myFunction) {
+    const memo = new Map();
+    return (arg, ...rest) => {
+        console.log(arg);
+        if(memo.has(arg)) {
+            return memo.get(arg);
+        }
+        const result = myFunction(arg, ...rest);
+        memo.set(arg, result);
+        return result;
+    }
+}
+
+const longComputation = memoize(longComputation3);
 
 // #Reguła:
 // Nie możesz zmieniać kodu poniżej:
