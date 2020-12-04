@@ -82,9 +82,10 @@ console.log(collection.get(myHoldOn))
 // Co więcej - usunięte zostanie też to co wpisaliśmy jako wartość mapy,
 
 // W tym układzie możemy rozważyć np. kolejną koncepcje prywatności danych w obiekcie JavaScript
+const privates = new WeakMap();
 
 function Person(name, age) {
-	const privates = new WeakMap();
+	
     privates.set(this, {});
     privates.get(this) //?
     privates.get(this).somethingPrivate = 'cash';
