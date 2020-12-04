@@ -26,10 +26,43 @@ const backendApiRequest = () => [
 ];
 const emailData = backendApiRequest();
 
+function capitalize(word) {
+    return word.charAt(0).toUpperCase() + word.slice(1);
+}
+
+function pluckNameFormEmail(email, idx) {
+    const [name = '', domain] = email.split('@');    
+    // console.log(idx);
+    return name;
+}
+
+function isAWomanName(name) {
+    // 
+    return name.toLowerCase().charAt(name.length - 1) === 'a'
+}
+
+function isEmailFromSiteCom(email) {
+    const [name, domain] = email.split('@');    
+    // console.log(idx);
+    return domain === 'site.com';
+}
+
+function isEmailFromSite(siteDomain) {
+    return (email) => {
+        const [name, domain] = email.split('@');    
+        return domain === siteDomain;
+    }
+}
+
+isAWomanName('Michał') //?
+isAWomanName('Anna') //?
+
 // Tutaj możesz pisać:
-const showNamesOnly = emailData;
-const showWomanNamesOnly = emailData;
-const showEmailsWithDomainSiteCom = emailData;
+// const showNamesOnly = emailData.map(email => email.split('@')[0]).map(capitalize);
+// const showNamesOnly = emailData.map((email) => pluckNameFormEmail(email)).map(capitalize);
+const showNamesOnly = emailData.map(pluckNameFormEmail).map(capitalize);
+const showWomanNamesOnly = emailData.map(pluckNameFormEmail).filter(isAWomanName).map(capitalize);;
+const showEmailsWithDomainSiteCom = emailData.filter(isEmailFromSite('site.com'));
 
 
 // #Reguła:

@@ -12,13 +12,20 @@
 
 // Mapowanie
 // Transformacja elementów
-const mapped = [1,2,3,4,5].map(nr => 'Chapter #' + nr);
+const array1 = [1,2,3,4,5];
+const mapped = array1.map(nr => Math.pow(nr, 2)); // Math.pow(nr, 2) === nr ** 2
+const mapped2 = array1.map(function(nr) { return Math.pow(nr, 2) }); // Math.pow(nr, 2) === nr ** 2
+console.log(array1);
 console.log(mapped);
+console.log(mapped2);
 
 // Filtrowanie
 // Zmiana ilości elementów
-const oddNumbers = [1,2,3,4,5].filter(nr => nr % 2);
+const array2 = [1,2,3,4,5];
+const oddNumbers = array2.filter(() => true);//.map(() => {}).map(() => {});
+console.log(array2);
 console.log(oddNumbers);
+console.log(oddNumbers === array2);
 
 // "Redukcja" elementów
 // Gdzie map i filter nie może tam reduce pośle!
@@ -35,6 +42,10 @@ const cashBalance = [
 	{id: 2, cash: 400, type: 'IN'},
 	{id: 1, cash: 2000, type: 'IN'},
 ]
+
+cashBalance.filter((operation) => operation.type === 'IN') //?
+cashBalance.filter((operation) => operation.type === 'IN').map(o => o.cash) //?
+cashBalance.filter((operation) => operation.type === 'IN').map(o => o.cash).reduce((a, b) => a + b); //?
 
 const inCash = cashBalance.filter((operation) => operation.type === 'IN').map(o => o.cash).reduce((a, b) => a + b);
 console.log(inCash);
